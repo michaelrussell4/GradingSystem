@@ -32,7 +32,7 @@ def compileJava(f):
     output = engineJava(f, cmd)
     return output
 
-def runJava(f):
+def runjavaNoInput(f):
     cmd = 'java -cp ' + gradingDir + ' ' + f[:-5]
     output = engineJava(f, cmd)
     return output
@@ -51,7 +51,7 @@ def countComments(f):
 def main():
     for i in range(len(files)):
         comp = compileJava(files[i])
-        run = runJava(files[i])
+        run = runjavaNoInput(files[i])
         cmt = countComments(files[i])
         print('---------------------------------------------------')
         print('{:<30} {:>20}'.format(('File ' + str(i)), comp[0]))
